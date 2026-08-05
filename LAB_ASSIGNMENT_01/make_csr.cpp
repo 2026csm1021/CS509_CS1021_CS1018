@@ -1,89 +1,98 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "make_csr.h"
+#include <cstdio>
 
-struct edge
+bool make_csr(string input_path, CSRGraph &g)
 {
-    int source;
-    int destination;
-    int weight;
-};
+    FILE *input_file;
 
-int main()
-{
-    vector<edge> edges;
-    edge e;
+    input_file = fopen(input_path.c_str(), "r");
 
-    int V,E;
-
-    FILE *input_file = fopen("input.txt", "r");
     if (input_file == NULL)
     {
-        cout << "[ERROR] Can't input file " << endl;
-        return 1;
+        cout << "[ERROR] Cannot open " << input_path << endl;
+        return false;
     }
 
-    fscanf(input_file,"%d %d",&V,&E);
-
-    while (fscanf(input_file, "%d %d %d", &e.source, &e.destination, &e.weight) == 3)
+    if (fscanf(input_file,
+               "%d %d %d",
+               &g.V,
+               &g.E,
+               &g.source) != 3)
     {
+        cout << "[ERROR] Invalid input file." << endl;
+        fclose(input_file);
+        return false;
+    }
+
+    if (g.V <= 0 || g.E < 0)
+    {
+        cout << "[ERROR] Invalid graph." << endl;
+        fclose(input_file);
+        return false;
+    }
+
+    if (g.source < 0 || g.source >= g.V)
+    {
+        cout << "[ERROR] Invalid source vertex." << endl;
+        fclose(input_file);
+        return false;
+    }
+
+    vector<edge> edges;
+
+    edge e;
+
+    for (int i = 0; i < g.E; i++)
+    {
+        if (fscanf(input_file,
+                   "%d %d %d",
+                   &e.source,
+                   &e.destination,
+                   &e.weight) != 3)
+        {
+            cout << "[ERROR] Invalid edge." << endl;
+            fclose(input_file);
+            return false;
+        }
+
+        if (e.source < 0 || e.source >= g.V ||
+            e.destination < 0 || e.destination >= g.V)
+        {
+            cout << "[ERROR] Invalid edge." << endl;
+            fclose(input_file);
+            return false;
+        }
+
         edges.push_back(e);
-
     }
 
+    fclose(input_file);
 
-    vector<int> count(V, 0);
+    g.row_ptr.assign(g.V + 1, 0);
 
-    for (auto &e : edges)
-        count[e.source]++;
+    vector<int> count(g.V, 0);
 
-    vector<int> row_ptr(V + 1);
+    for (int i = 0; i < edges.size(); i++)
+        count[edges[i].source]++;
 
-    row_ptr[0] = 0;
+    for (int i = 1; i <= g.V; i++)
+        g.row_ptr[i] = g.row_ptr[i - 1] + count[i - 1];
 
-    for (int i = 1; i <= V; i++)
-        row_ptr[i] = row_ptr[i - 1] + count[i - 1];
+    g.col_idx.resize(g.E);
+    g.values.resize(g.E);
 
+    vector<int> position(g.row_ptr.begin(),
+                         g.row_ptr.end() - 1);
 
-
-    vector<int> col_idx;
-    vector<int> values;
-
-    for (auto &e : edges)
+    for (int i = 0; i < edges.size(); i++)
     {
-        col_idx.push_back(e.destination);
-        values.push_back(e.weight);
+        int pos = position[edges[i].source];
+
+        g.col_idx[pos] = edges[i].destination;
+        g.values[pos] = edges[i].weight;
+
+        position[edges[i].source]++;
     }
 
-    // fclose(input_file);
-    // int i = 0;
-    // auto temp = edges[0];
-    // row_ptr.push_back(i);
-
-    // for (auto &a : edges)
-    // {
-    //     if (a.source != temp.source)
-    //     {
-    //         temp = a;
-    //         row_ptr.push_back(i);
-    //     }
-    //     col_ptr.push_back(a.destination);
-    //     values.push_back(a.weight);
-    //     i++;
-    // }
-
-    cout << "COL_PTR : ";
-    for (auto a : col_idx)
-        cout << a << " ";
-    cout << endl;
-    cout << "ROW_PTR : ";
-    for (auto a : row_ptr)
-        cout << a << " ";
-    cout << endl;
-    cout << "Values : ";
-    for (auto a : values)
-        cout << a << " ";
-
-    cout << endl;
+    return true;
 }
