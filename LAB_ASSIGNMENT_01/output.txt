@@ -1,0 +1,6 @@
+ROW_PTR : 0 2 4 7 9 10 
+COL_IDX : 1 2 0 3 0 3 4 1 2 2 
+Algorithm : BFS
+Source : 0
+Traversal : 0 1 2 3 4 
+Execution Time : 11.029 ms

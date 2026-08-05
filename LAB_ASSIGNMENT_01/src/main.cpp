@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct edge
@@ -43,7 +43,6 @@ void BFS(int source,
     cout << endl;
 }
 
-
 int main()
 {
     vector<edge> edges;
@@ -71,7 +70,7 @@ int main()
 
     fclose(input_file);
 
-    // Sort according to source vertex
+    // Sort edges by source vertex
     sort(edges.begin(), edges.end(), [](edge a, edge b)
     {
         if (a.source == b.source)
@@ -121,6 +120,10 @@ int main()
         cout << x << " ";
 
     cout << endl;
+
+    int source = 0;
+
+    BFS(source, row_ptr, col_idx, V);
 
     return 0;
 }
