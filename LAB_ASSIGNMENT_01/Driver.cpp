@@ -10,8 +10,8 @@ using namespace std;
 
 int main()
 {
-    string testcase_dir = "testcases";
-    string output_dir = "outputs";
+    string testcase_dir = "testcases/input";
+    string output_dir = "testcases/output";
 
     if (!fs::exists(testcase_dir))
     {
