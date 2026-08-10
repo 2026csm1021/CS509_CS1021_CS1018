@@ -8,7 +8,6 @@ int main(){
 
 CSRGraph G;
 make_csr("test",G);
-
 connectedComponents(G);
 
 
