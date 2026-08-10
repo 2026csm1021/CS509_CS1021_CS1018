@@ -7,12 +7,12 @@ Source : 2
 Algorithm : BFS
 Source : 2
 Traversal : 2 3 4 5 0 1 
-Execution Time : 0.002622 ms
+Execution Time : 0.001247 ms
 
 Algorithm : DFS
 Source : 2
 Traversal : 2 3 5 0 1 4 
-Execution Time : 0.002293 ms
+Execution Time : 0.001160 ms
 
 Algorithm : SSSP
 Method : Dijkstra
@@ -24,4 +24,4 @@ Distance :
 3 -> 2
 4 -> 6
 5 -> 6
-Execution Time : 0.002999 ms
+Execution Time : 0.001289 ms
