@@ -10,15 +10,13 @@ int main()
         "testcases/case1.txt",
         "testcases/case2.txt",
         "testcases/case3.txt",
-        "testcases/case4.txt"
-    };
+        "testcases/case4.txt"};
 
     string outputFiles[] = {
         "output/case1_output.txt",
         "output/case2_output.txt",
         "output/case3_output.txt",
-        "output/case4_output.txt"
-    };
+        "output/case4_output.txt"};
 
     for (int i = 0; i < 4; i++)
     {
@@ -46,4 +44,3 @@ int main()
     }
 
     return 0;
-}
