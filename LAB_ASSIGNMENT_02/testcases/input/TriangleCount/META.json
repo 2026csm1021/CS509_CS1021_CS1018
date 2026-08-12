@@ -1,0 +1,59 @@
+{
+  "algorithm": "Triangle Counting",
+  "description": "Counts the total number of triangles (3-cycles) in an undirected graph",
+  "test_cases": [
+    {
+      "filename": "tc_10.txt",
+      "vertices": 10,
+      "edges": 15,
+      "source": 0,
+      "complexity": "Simple",
+      "description": "Small graph with sparse connectivity",
+      "use_case": "Quick testing and verification",
+      "expected_output": "Triangle count and execution time"
+    },
+    {
+      "filename": "tc_100.txt",
+      "vertices": 100,
+      "edges": 250,
+      "source": 0,
+      "complexity": "Medium",
+      "description": "Medium-sized graph with moderate connectivity",
+      "use_case": "Standard testing",
+      "expected_output": "Triangle count and execution time"
+    },
+    {
+      "filename": "tc_1000.txt",
+      "vertices": 1000,
+      "edges": 5000,
+      "source": 0,
+      "complexity": "Large",
+      "description": "Large graph with high connectivity",
+      "use_case": "Performance testing on larger graphs",
+      "expected_output": "Triangle count and execution time"
+    },
+    {
+      "filename": "tc_5000.txt",
+      "vertices": 5000,
+      "edges": 25000,
+      "source": 0,
+      "complexity": "Very Large",
+      "description": "Very large graph for stress testing",
+      "use_case": "Maximum capacity testing",
+      "expected_output": "Triangle count and execution time"
+    }
+  ],
+  "algorithm_details": {
+    "time_complexity": "O(V * E) where V is vertices and E is edges",
+    "space_complexity": "O(V + E)",
+    "approach": "Brute force enumeration of vertex triples and edge checking",
+    "properties": "Works on undirected graphs, counts each triangle only once"
+  },
+  "output_format": {
+    "header": "Algorithm: Triangle Counting",
+    "content": [
+      "Number of triangles: [count]",
+      "Execution time: [time] ms"
+    ]
+  }
+}

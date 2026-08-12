@@ -1,0 +1,258 @@
+{
+  "test_suite_version": "1.0",
+  "generated_date": "August 2026",
+  "total_algorithms": 3,
+  "total_testcases": 12,
+  
+  "algorithms": [
+    {
+      "id": 1,
+      "name": "Connected Components",
+      "folder": "ConnectedComponents",
+      "description": "Identifies all connected components in an undirected graph using DFS",
+      "menu_choice": 1,
+      "testcases": 4,
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V)",
+      "approach": "Iterative Depth-First Search"
+    },
+    {
+      "id": 2,
+      "name": "Triangle Counting",
+      "folder": "TriangleCount",
+      "description": "Counts total number of triangles (3-cycles) in an undirected graph",
+      "menu_choice": 2,
+      "testcases": 4,
+      "time_complexity": "O(V * E)",
+      "space_complexity": "O(V + E)",
+      "approach": "Brute force vertex enumeration with edge checking"
+    },
+    {
+      "id": 3,
+      "name": "Betweenness Centrality",
+      "folder": "BetweennessCentrality",
+      "description": "Measures importance of vertices based on shortest paths (Brandes algorithm)",
+      "menu_choice": 3,
+      "testcases": 4,
+      "time_complexity": "O(V * (V + E))",
+      "space_complexity": "O(V + E)",
+      "approach": "BFS-based shortest path calculation"
+    }
+  ],
+  
+  "testcase_sizes": [
+    {
+      "size_category": "Small",
+      "suffix": "10",
+      "vertices": 10,
+      "description": "Quick verification and testing",
+      "use_case": "Unit testing, algorithm verification"
+    },
+    {
+      "size_category": "Medium",
+      "suffix": "100",
+      "vertices": 100,
+      "description": "Standard testing",
+      "use_case": "Regular testing and validation"
+    },
+    {
+      "size_category": "Large",
+      "suffix": "1000",
+      "vertices": 1000,
+      "description": "Performance testing",
+      "use_case": "Scalability analysis, timing measurements"
+    },
+    {
+      "size_category": "Very Large",
+      "suffix": "5000",
+      "vertices": 5000,
+      "description": "Stress testing",
+      "use_case": "Maximum capacity, memory usage analysis"
+    }
+  ],
+  
+  "testcases_detailed": {
+    "TriangleCount": {
+      "folder_name": "TriangleCount",
+      "algorithm_name": "Triangle Counting",
+      "tests": [
+        {
+          "filename": "tc_10.txt",
+          "vertices": 10,
+          "edges": 15,
+          "size_category": "Small",
+          "filename_prefix": "tc_",
+          "output_expected": "Total triangles and execution time"
+        },
+        {
+          "filename": "tc_100.txt",
+          "vertices": 100,
+          "edges": 250,
+          "size_category": "Medium",
+          "filename_prefix": "tc_",
+          "output_expected": "Total triangles and execution time"
+        },
+        {
+          "filename": "tc_1000.txt",
+          "vertices": 1000,
+          "edges": 5000,
+          "size_category": "Large",
+          "filename_prefix": "tc_",
+          "output_expected": "Total triangles and execution time"
+        },
+        {
+          "filename": "tc_5000.txt",
+          "vertices": 5000,
+          "edges": 25000,
+          "size_category": "Very Large",
+          "filename_prefix": "tc_",
+          "output_expected": "Total triangles and execution time"
+        }
+      ]
+    },
+    "BetweennessCentrality": {
+      "folder_name": "BetweennessCentrality",
+      "algorithm_name": "Betweenness Centrality",
+      "tests": [
+        {
+          "filename": "bc_10.txt",
+          "vertices": 10,
+          "edges": 12,
+          "size_category": "Small",
+          "filename_prefix": "bc_",
+          "output_expected": "Centrality value per vertex and execution time"
+        },
+        {
+          "filename": "bc_100.txt",
+          "vertices": 100,
+          "edges": 150,
+          "size_category": "Medium",
+          "filename_prefix": "bc_",
+          "output_expected": "Centrality value per vertex and execution time"
+        },
+        {
+          "filename": "bc_1000.txt",
+          "vertices": 1000,
+          "edges": 1500,
+          "size_category": "Large",
+          "filename_prefix": "bc_",
+          "output_expected": "Centrality value per vertex and execution time"
+        },
+        {
+          "filename": "bc_5000.txt",
+          "vertices": 5000,
+          "edges": 7500,
+          "size_category": "Very Large",
+          "filename_prefix": "bc_",
+          "output_expected": "Centrality value per vertex and execution time"
+        }
+      ]
+    },
+    "ConnectedComponents": {
+      "folder_name": "ConnectedComponents",
+      "algorithm_name": "Connected Components",
+      "tests": [
+        {
+          "filename": "cc_10.txt",
+          "vertices": 10,
+          "edges": 8,
+          "components": 2,
+          "size_category": "Small",
+          "filename_prefix": "cc_",
+          "output_expected": "Component ID per vertex and execution time"
+        },
+        {
+          "filename": "cc_100.txt",
+          "vertices": 100,
+          "edges": 99,
+          "components": 1,
+          "size_category": "Medium",
+          "filename_prefix": "cc_",
+          "output_expected": "Component ID per vertex and execution time"
+        },
+        {
+          "filename": "cc_1000.txt",
+          "vertices": 1000,
+          "edges": 999,
+          "components": 1,
+          "size_category": "Large",
+          "filename_prefix": "cc_",
+          "output_expected": "Component ID per vertex and execution time"
+        },
+        {
+          "filename": "cc_5000.txt",
+          "vertices": 5000,
+          "edges": 4999,
+          "components": 1,
+          "size_category": "Very Large",
+          "filename_prefix": "cc_",
+          "output_expected": "Component ID per vertex and execution time"
+        }
+      ]
+    }
+  },
+  
+  "file_naming_convention": {
+    "TriangleCount": {
+      "prefix": "tc_",
+      "pattern": "tc_[vertices].txt",
+      "example": "tc_10.txt, tc_100.txt, tc_1000.txt, tc_5000.txt"
+    },
+    "BetweennessCentrality": {
+      "prefix": "bc_",
+      "pattern": "bc_[vertices].txt",
+      "example": "bc_10.txt, bc_100.txt, bc_1000.txt, bc_5000.txt"
+    },
+    "ConnectedComponents": {
+      "prefix": "cc_",
+      "pattern": "cc_[vertices].txt",
+      "example": "cc_10.txt, cc_100.txt, cc_1000.txt, cc_5000.txt"
+    }
+  },
+  
+  "input_file_format": {
+    "line_1": "V E source",
+    "line_2_to_E+1": "u v weight",
+    "field_descriptions": {
+      "V": "Number of vertices (0 to V-1)",
+      "E": "Number of edges",
+      "source": "Source vertex index",
+      "u": "Source vertex of edge",
+      "v": "Destination vertex of edge",
+      "weight": "Edge weight (1 for unweighted)"
+    },
+    "example": "10 15 0\\n0 1 1\\n0 2 1\\n..."
+  },
+  
+  "metadata_locations": {
+    "TriangleCount": "input/TriangleCount/META.json",
+    "BetweennessCentrality": "input/BetweennessCentrality/META.json",
+    "ConnectedComponents": "input/ConnectedComponents/META.json",
+    "master_readme": "input/README.md"
+  },
+  
+  "output_structure": {
+    "base_directory": "testcases/output",
+    "TriangleCount": "output/TriangleCount/tc_[vertices]_output.txt",
+    "BetweennessCentrality": "output/BetweennessCentrality/bc_[vertices]_output.txt",
+    "ConnectedComponents": "output/ConnectedComponents/cc_[vertices]_output.txt"
+  },
+  
+  "statistics": {
+    "total_vertices_across_all": 18120,
+    "total_edges_across_all": 65350,
+    "largest_testcase": "tc_5000.txt or bc_5000.txt",
+    "smallest_testcase": "tc_10.txt or bc_10.txt or cc_10.txt",
+    "average_vertices_per_algorithm": 4030,
+    "average_edges_per_algorithm": 21783
+  },
+  
+  "notes": {
+    "1": "All test files are generated and formatted",
+    "2": "Each algorithm has 4 test cases of different sizes",
+    "3": "META.json files contain detailed algorithm information",
+    "4": "Input format is standardized across all tests",
+    "5": "Output directories are auto-created on first run",
+    "6": "Tests range from simple (10 vertices) to large (5000 vertices)"
+  }
+}
