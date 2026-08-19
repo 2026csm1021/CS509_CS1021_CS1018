@@ -90,17 +90,10 @@ Maxflow-Mincut driver rejects, with a clear error and no crash:
 File        Degree  x0  Rate    Tol    Max Iter  Exp x*  Actual x       Iter  Time (ms)  Status
 gd_01.txt   2       0   0.10    1e-6   5,000     3       2.9999995063   70    0.195      Pass
 gd_02.txt   4       2   0.02    1e-6   10,000    0       0.0000002379   180   0.022      Pass
-gd_03.txt   6       2   0.02    1e-6   20,000    0       0.0000004835   349   0.048      Pass
-gd_04.txt   8       2   0.01    1e-8   50,000    0       0.0000000050   948   0.147      Pass
-gd_05.txt   10      2   0.005   1e-10  100,000   0       0.0000000000   2364  0.486      Pass
 
 9.3 MAXFLOW-MINCUT RESULTS TABLE
 
 File                 V        E        Source  Sink     Flow   Cut Cap  Time (ms)   Status
 maxflow_10.txt       10       17       0       9        131    131      0.023       Pass
 maxflow_100.txt      100      300      0       99       253    253      0.191       Pass
-maxflow_1000.txt     1,000    3,000    0       999      1023   1023     10.408      Pass
-maxflow_10000.txt    10,000   30,000   0       9999     2353   2353     61.112      Pass
-maxflow_50000.txt    50,000   150,000  0       49999    5666   5666     513.998     Pass
-maxflow_100000.txt   100,000  300,000  0       99999    7473   7473     1316.430    Pass (optional test)
 
